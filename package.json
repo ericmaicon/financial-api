@@ -1,0 +1,26 @@
+{
+  "name": "financeiro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "sls offline start"
+  },
+  "dependencies": {
+    "adm-zip": "^0.4.13",
+    "apollo-server-lambda": "^2.3.1",
+    "aws-sdk": "^2.380.0",
+    "graphql": "^14.0.2",
+    "mysql": "^2.16.0",
+    "reflect-metadata": "^0.1.12",
+    "request": "^2.88.0",
+    "typeorm": "^0.2.9"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.16",
+    "@types/graphql": "^14.0.3",
+    "@types/node": "^10.12.18",
+    "serverless-offline": "^3.31.3",
+    "serverless-plugin-typescript": "^1.1.5"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "extends": ["airbnb-base", "prettier"],
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "rules": {
+    "arrow-parens": ["error", "always"],
+    "no-console": 0,
+    "no-param-reassign": [1, { "props": false }],
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+  },
+  "plugins": ["prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  }
+}
