@@ -4,12 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "sls offline start"
+    "start": "sls offline start",
+    "migration:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate -n",
+    "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
+    "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert"
   },
   "dependencies": {
     "adm-zip": "^0.4.13",
     "apollo-server-lambda": "^2.3.1",
     "aws-sdk": "^2.380.0",
+    "dotenv": "^6.2.0",
     "graphql": "^14.0.2",
     "mysql": "^2.16.0",
     "reflect-metadata": "^0.1.12",
@@ -18,9 +22,11 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.16",
+    "@types/dotenv": "^6.1.0",
     "@types/graphql": "^14.0.3",
     "@types/node": "^10.12.18",
     "serverless-offline": "^3.31.3",
-    "serverless-plugin-typescript": "^1.1.5"
+    "serverless-plugin-typescript": "^1.1.5",
+    "ts-node": "^7.0.1"
   }
 }

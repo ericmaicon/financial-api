@@ -1,6 +1,6 @@
 import { GraphQLID, GraphQLString, GraphQLObjectType } from 'graphql';
 
-const Stock = new GraphQLObjectType({
+const StockSchema = new GraphQLObjectType({
   name: 'Stock',
   description: 'Stock item',
   fields: {
@@ -31,4 +31,4 @@ const Stock = new GraphQLObjectType({
   }
 });
 
-export default Stock;
+export default StockSchema;

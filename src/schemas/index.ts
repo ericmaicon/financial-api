@@ -5,41 +5,45 @@ import {
   GraphQLNonNull,
   GraphQLString
 } from 'graphql';
+import { getCustomRepository } from 'typeorm';
 
-import Stock from './Stock';
-import { getStocks, importStocks } from '../repositories/stock';
+import StockRepository from '../repository/StockRepository';
+import StockSchema from './StockSchema';
 
 const query = new GraphQLObjectType({
   name: 'QueryType',
   description: 'The root query type.',
   fields: {
     stocks: {
-      type: new GraphQLList(Stock),
-      resolve: getStocks
+      type: new GraphQLList(StockSchema),
+      resolve: () => {
+        const stockRepository = getCustomRepository(StockRepository);
+        return stockRepository.search();
+      }
     }
   }
 });
 
-const mutation = new GraphQLObjectType({
-  name: 'Mutation',
-  description: 'The root mutation type',
-  fields: {
-    importStocks: {
-      type: new GraphQLList(Stock),
-      args: {
-        url: {
-          type: new GraphQLNonNull(GraphQLString),
-          description: 'The url from xlsx to be imported'
-        }
-      },
-      resolve: (_, args) => importStocks()
-    }
-  }
-});
+// const mutation = new GraphQLObjectType({
+//   name: 'Mutation',
+//   description: 'The root mutation type',
+//   fields: {
+//     importStocks: {
+//       type: new GraphQLList(Stock),
+//       args: {
+//         url: {
+//           type: new GraphQLNonNull(GraphQLString),
+//           description: 'The url from xlsx to be imported'
+//         }
+//       },
+//       resolve: (_, args) => importStocks()
+//     }
+//   }
+// });
 
 const schema = new GraphQLSchema({
-  query,
-  mutation
+  query
+  // mutation
 });
 
 export default schema;

@@ -13,6 +13,20 @@ sls dynamodb install
 sls offline start
 ```
 
+## Migrations
+
+create a migration
+
+```sh
+typeorm migration:create -n Stock
+```
+
+run migrations
+
+```sh
+npm run migration:run
+```
+
 ## Links
 
 [https://serverless.com/blog/serverless-express-rest-api/](https://serverless.com/blog/serverless-express-rest-api/)
